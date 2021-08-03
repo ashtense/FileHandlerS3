@@ -34,3 +34,15 @@ public interface FileHandler {
 2. To implement the above interface you would need to configure the clients and other configuration beens for the broker. Please follow the \
    same package hierarchy.
 3. Add this spring boot project in pom.xml as a dependency and rebuild the artifact. 
+
+How to Run:
+1. GetByFileName: curl --location --request GET 'http://localhost:8080/api/files/20190630_181404.jpg'
+2. Get All Files: curl --location --request GET 'http://localhost:8080/api/files/'
+3. Upload one file: curl --location --request POST 'http://localhost:8080/api/files/' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "filePath":"D:\\Movies&TV\\Point Break 2015 1080p BluRay x264 DTS-JYK\\Point Break 2015 1080p BluRay x264 DTS-JYK.mkv",
+    "fileName":"Point Break 2015 1080p BluRay x264 DTS-JYK.mkv",
+    "fileService": "S3",
+    "destination":"file-upload-ashwani"
+}'
